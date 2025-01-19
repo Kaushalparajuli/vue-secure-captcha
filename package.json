@@ -1,6 +1,6 @@
 {
   "name": "vue-secure-captcha",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A secure, customizable CAPTCHA component for Vue.js",
   "main": "./dist/vue-secure-captcha.umd.js",
   "module": "./dist/vue-secure-captcha.es.js",
