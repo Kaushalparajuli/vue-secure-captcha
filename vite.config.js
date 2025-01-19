@@ -16,6 +16,8 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
+        formats: ["es", "umd"],
+        exports: "named",
       },
     },
   },
