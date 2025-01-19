@@ -1,0 +1,41 @@
+{
+  "name": "vue-secure-captcha",
+  "version": "1.0.0",
+  "description": "A secure, customizable CAPTCHA component for Vue.js",
+  "main": "dist/vue-secure-captcha.umd.js",
+  "module": "dist/vue-secure-captcha.mjs",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "lint": "eslint src --ext .js,.vue",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "vue",
+    "captcha",
+    "security",
+    "verification",
+    "vue3",
+    "component"
+  ],
+  "author": "Kaushal Parajuli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kaushalparajuli/vue-secure-captcha.git"
+  },
+  "homepage": "https://github.com/Kaushalparajuli/vue-secure-captcha#readme",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.0.0",
+    "vite": "^4.0.0",
+    "vitest": "^0.30.0"
+  }
+}
