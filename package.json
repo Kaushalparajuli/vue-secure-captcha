@@ -1,18 +1,17 @@
 {
   "name": "vue-secure-captcha",
   "version": "1.0.3",
+  "private": false,
   "description": "A secure, customizable CAPTCHA component for Vue.js",
   "type": "module",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
     }
   },
-  "sideEffects": false,
   "files": [
     "dist"
   ],

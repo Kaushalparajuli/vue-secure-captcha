@@ -1,8 +1,8 @@
 <!-- components/StandaloneCaptcha.vue -->
 <template>
-  <div class="captcha-container">
+  <div class="vue-captcha-captcha-container">
     <!-- CAPTCHA Image -->
-    <div class="captcha-image-container">
+    <div class="vue-captcha-captcha-image-container">
       <img :src="captchaImage" alt="CAPTCHA" class="captcha-image" />
       <button class="reset-button" type="button" @click="regenerateCaptcha">
         ↺ Reset
@@ -10,13 +10,13 @@
     </div>
 
     <!-- Input field with status icons -->
-    <div class="input-container">
+    <div class="vue-captcha-input-container">
       <input
         v-model="userInput"
         :class="{
-          'input-field': true,
-          'input-success': isVerified,
-          'input-error': showError,
+          'vue-captcha-input-field': true,
+          'vue-captcha-input-success': isVerified,
+          'vue-captcha-input-error': showError,
         }"
         :disabled="isVerified"
         :maxlength="length"
@@ -26,14 +26,24 @@
       />
 
       <!-- Success Check Icon -->
-      <div v-if="isVerified" class="status-icon success-icon">&#10003;</div>
+      <div
+        v-if="isVerified"
+        class="vue-captcha-status-icon vue-captcha-success-icon"
+      >
+        &#10003;
+      </div>
 
       <!-- Error Cross Icon -->
-      <div v-if="showError" class="status-icon error-icon">&#x292B;</div>
+      <div
+        v-if="showError"
+        class="vue-captcha-status-icon vue-captcha-error-icon"
+      >
+        &#x292B;
+      </div>
     </div>
 
     <!-- Error message -->
-    <div v-if="showError" class="error-message">
+    <div v-if="showError" class="vue-captcha-error-message">
       <span>Incorrect CAPTCHA. A new one has been generated.</span>
     </div>
   </div>
@@ -190,13 +200,13 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-.captcha-container {
+<style>
+.vue-captcha-captcha-container {
   width: 100%;
   font-family: sans-serif;
 }
 
-.captcha-image-container {
+.vue-captcha-captcha-image-container {
   position: relative;
   background-color: #f3f4f6;
   border-radius: 8px;
@@ -204,13 +214,13 @@ onMounted(() => {
   margin-bottom: 1rem;
 }
 
-.captcha-image {
+.vue-captcha-captcha-image {
   width: 100%;
   height: 96px;
   object-fit: contain;
 }
 
-.reset-button {
+.vue-captcha-reset-button {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -223,16 +233,16 @@ onMounted(() => {
   transition: color 0.2s;
 }
 
-.reset-button:hover {
+.vue-captcha-reset-button:hover {
   color: #374151;
 }
 
-.input-container {
+.vue-captcha-input-container {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.input-field {
+.vue-captcha-input-field {
   width: 100%;
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   border: 2px solid #e5e7eb;
@@ -242,30 +252,30 @@ onMounted(() => {
   transition: all 0.2s;
 }
 
-.input-field:focus {
+.vue-captcha-input-field:focus {
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.input-success {
+.vue-captcha-input-success {
   border-color: #10b981;
 }
 
-.input-success:focus {
+.vue-captcha-input-success:focus {
   border-color: #10b981;
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-.input-error {
+.vue-captcha-input-error {
   border-color: #ef4444;
 }
 
-.input-error:focus {
+.vue-captcha-input-error:focus {
   border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-.status-icon {
+.vue-captcha-status-icon {
   position: absolute;
   right: 0.75rem;
   top: 50%;
@@ -275,15 +285,15 @@ onMounted(() => {
   animation: fadeScale 0.2s ease-in-out;
 }
 
-.success-icon {
+.vue-captcha-success-icon {
   color: #10b981;
 }
 
-.error-icon {
+.vue-captcha-error-icon {
   color: #ef4444;
 }
 
-.error-message {
+.vue-captcha-error-message {
   background-color: #fef2f2;
   color: #991b1b;
   padding: 1rem;
