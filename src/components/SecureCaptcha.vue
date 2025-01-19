@@ -1,6 +1,6 @@
 <!-- components/SecureCaptcha.vue -->
 <template>
-  <div style="width: 100%; max-width: 400px; padding: 16px">
+  <div style="width: 100%; padding: 16px">
     <!-- CAPTCHA Image -->
     <div
       style="
