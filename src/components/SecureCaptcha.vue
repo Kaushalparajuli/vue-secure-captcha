@@ -1,26 +1,59 @@
-<!-- components/StandaloneCaptcha.vue -->
+<!-- components/SecureCaptcha.vue -->
 <template>
-  <div class="vue-captcha-captcha-container">
+  <div style="width: 100%; max-width: 400px; padding: 16px">
     <!-- CAPTCHA Image -->
-    <div class="vue-captcha-captcha-image-container">
-      <img :src="captchaImage" alt="CAPTCHA" class="captcha-image" />
-      <button class="reset-button" type="button" @click="regenerateCaptcha">
+    <div
+      style="
+        position: relative;
+        background-color: #f3f4f6;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        border: 1px solid #e5e7eb;
+      "
+    >
+      <img
+        :src="captchaImage"
+        alt="CAPTCHA"
+        style="width: 100%; height: 96px; object-fit: contain; display: block"
+      />
+      <button
+        style="
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          color: #6b7280;
+          cursor: pointer;
+          background: none;
+          border: none;
+          font-size: 20px;
+          padding: 4px;
+        "
+        @click="regenerateCaptcha"
+      >
         ↺ Reset
       </button>
     </div>
 
-    <!-- Input field with status icons -->
-    <div class="vue-captcha-input-container">
+    <!-- Input field -->
+    <div style="position: relative; margin-bottom: 16px">
       <input
         v-model="userInput"
-        :class="{
-          'vue-captcha-input-field': true,
-          'vue-captcha-input-success': isVerified,
-          'vue-captcha-input-error': showError,
-        }"
         :disabled="isVerified"
         :maxlength="length"
         :placeholder="`Enter ${length} characters`"
+        :style="{
+          width: '100%',
+          padding: '8px 40px 8px 12px',
+          border: `2px solid ${
+            isVerified ? '#10b981' : showError ? '#ef4444' : '#e5e7eb'
+          }`,
+          borderRadius: '8px',
+          fontSize: '16px',
+          lineHeight: 1.5,
+          outline: 'none',
+          transition: 'all 0.2s',
+        }"
         type="text"
         @input="handleInputChange"
       />
@@ -28,23 +61,34 @@
       <!-- Success Check Icon -->
       <div
         v-if="isVerified"
-        class="vue-captcha-status-icon vue-captcha-success-icon"
+        style="
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          color: #10b981;
+        "
       >
-        &#10003;
+        ✓
       </div>
 
       <!-- Error Cross Icon -->
       <div
         v-if="showError"
-        class="vue-captcha-status-icon vue-captcha-error-icon"
+        style="
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          color: #ef4444;
+        "
       >
-        &#x292B;
+        ✕
       </div>
-    </div>
-
-    <!-- Error message -->
-    <div v-if="showError" class="vue-captcha-error-message">
-      <span>Incorrect CAPTCHA. A new one has been generated.</span>
     </div>
   </div>
 </template>
