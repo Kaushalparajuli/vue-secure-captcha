@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.js"),
       name: "VueSecureCaptcha",
-      fileName: (format) => `vue-secure-captcha.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ["vue"],
@@ -16,8 +16,6 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
-        formats: ["es", "umd"],
-        exports: "named",
       },
     },
   },
