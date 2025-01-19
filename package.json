@@ -1,6 +1,6 @@
 {
   "name": "vue-secure-captcha",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "description": "A secure, customizable CAPTCHA component for Vue.js",
   "type": "module",
