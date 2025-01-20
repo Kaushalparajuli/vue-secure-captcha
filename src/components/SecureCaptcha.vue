@@ -18,6 +18,7 @@
         style="width: 100%; height: 96px; object-fit: contain; display: block"
       />
       <button
+        v-if="canReset"
         style="
           position: absolute;
           top: 8px;
@@ -113,6 +114,10 @@ const props = defineProps({
   height: {
     type: Number,
     default: 100,
+  },
+  canReset: {
+    type: Boolean,
+    default: true,
   },
 });
 
